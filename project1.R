@@ -12,13 +12,24 @@ View(g) # show g
 nodefreq <- as.data.frame(table(v1))
 #need to reduce the graph size here
 
-result <- nodefreq[8,2]  
-#delete all the node with degree 1
-for (i in node) {
-  if(nodefreq[i+1,2] == 1)
-    {delete_vertices(g,i)}
-}
-View(g)
+g <- g - V(g)[degree(g)<=8]
+plot(g)
 
-plot(g) # generate the plot
+
+
+# remove(node)
+# node <- V(g)
+#delete all the node with degree 1
+# #n <- 0
+# m <-attr(node,"names")
+# tempnode <- as.numeric(m)
+# for (i in tempnode) {
+#   if(nodefreq[nodefreq$v1==i,2]==1L)
+#     {print(i)}
+# }
+
+#delete_vertices(g,i)
+#View(g)
+
+#plot(g) # generate the plot
   
