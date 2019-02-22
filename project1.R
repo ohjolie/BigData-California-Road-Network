@@ -14,6 +14,18 @@ g <- g - V(g)[degree(g)<=10]
 # generate the plot
 plot(g) 
 
+#convert graph to adjaceny matrix
+matrix <- get.adjacency(g)
+graph.matrix <- as.matrix(matrix)
+
+#function
+is.connected(g) #connection
+connectedness(graph.matrix) #Krackhardt connectedness scores
+gden(graph.matrix) #density
+shortpath <- geodist(graph.matrix) #shortest path of node
+
+
+
 
 
 #node <- V(g) #save all the node in g to "node"
