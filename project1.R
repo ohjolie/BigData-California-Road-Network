@@ -47,6 +47,17 @@ print(shortpath)
 bipartite.mapping(g) #decide whether a graph is bipartite
 cliques(g)
 
+#function
+igraph::is.connected(g) #connection
+connectedness(graph.matrix) #Krackhardt connectedness scores
+transitivity(g)
+gden(graph.matrix) #density
+shortpath <- geodist(graph.matrix) #shortest path of node
+
+is.simple(g)
+
+print(shortpath)
+
 #node <- V(g) #save all the node in g to "node"
 #nodefreq <- as.data.frame(table(v1))
 # charnode <-attr(node,"names")
