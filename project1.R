@@ -15,7 +15,7 @@ g<-graph.data.frame(relations,directed=FALSE)
 
 #a better reducing algorithm
 #V:4947 E:16382 Connectedness:0.015
-while(length(V(g))>5000){
+while(vcount(g)>5000){
   g <- g - V(g)[igraph::degree(g)<=4]
   i <- i+1
 }
@@ -36,7 +36,7 @@ connectedness(graph.matrix) #Krackhardt connectedness scores
 density <- gden(graph.matrix) #density
 shortpath <- geodist(graph.matrix) #shortest path of all node
 ego <- ego.extract(graph.matrix)
-egocentric <- ego[1:3] #没懂这个...
+egocentric <- ego[2]
 closeness(g) #closeness of all node
 vertex_attr(g)
 is.simple(g)
