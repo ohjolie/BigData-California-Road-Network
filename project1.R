@@ -6,11 +6,23 @@ v1 <- em[,1] #Save the first column of data to v1
 v2 <- em[,2] #Save the second column of data to v2
 
 relations <- data.frame(from=v1,to=v2) 
-g<-graph.data.frame(relations,directed=TRUE)
+g<-graph.data.frame(relations,directed=FALSE)
 
 #reduce the graph size here
 #delete all the node with degree 1,2,3,4,5
-g <- g - V(g)[degree(g)<=10]
+
+#g <- g - V(g)[degree(g)<=4]
+
+#a better reducing algorithm
+#V:4947 E:16382 Connectedness:0.015
+while(length(V(g))>5000){
+  g <- g - V(g)[igraph::degree(g)<=4]
+  i <- i+1
+}
+
+length(V(g))
+length(E(g))
+
 # generate the plot
 plot(g) 
 
@@ -19,12 +31,15 @@ matrix <- get.adjacency(g)
 graph.matrix <- as.matrix(matrix)
 
 #function
-is.connected(g) #connection
+igraph::is.connected(g) #connection
 connectedness(graph.matrix) #Krackhardt connectedness scores
+transitivity(g)
 gden(graph.matrix) #density
 shortpath <- geodist(graph.matrix) #shortest path of node
 
+is.simple(g)
 
+print(shortpath)
 
 
 
