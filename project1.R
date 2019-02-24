@@ -49,8 +49,23 @@ print(shortpath)
 
 #15 other functions in igraph
 bipartite.mapping(g) #decide whether a graph is bipartite
-cliques(g)
+cliques(g)#The functions find cliques
+centralization.betweenness(g)#Centralize a graph according to the betweenness of vertices
+centralization.closeness(g)#Centralize a graph according to the closeness of vertices
+articulation.points(g)#Articulation points of a graph
 
+average.path.length(g)#
+automorphisms(g)#Number of automorphisms
+blockGraphs(g)#Calculate Cohesive Blocks
+cohesion(g)#Vertex connectivity
+coreness(g)#The k-core of graph is a maximal subgraph in which each vertex has at least degree k. The coreness of a vertex is k if it belongs to the k-core but not to the (k+1)-core.
+
+efficiency(graph.matrix)#Compute Graph Efficiency Scores
+gtrans(graph.matrix)#Compute the Transitivity of an Input Graph or Graph Stack
+isolates(graph.matrix)#List the Isolates in a Graph or Graph Stack
+loadcent(graph.matrix)#Compute the Load Centrality Scores of Network Positions
+g.reach<-reachability(graph.matrix)#producing the associated reachability matrices
+stresscent(graph.matrix)#Compute the Stress Centrality Scores of Network Positions
 
 #node <- V(g) #save all the node in g to "node"
 #nodefreq <- as.data.frame(table(v1))
