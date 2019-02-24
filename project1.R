@@ -15,10 +15,14 @@ g<-graph.data.frame(relations,directed=TRUE)
 
 #a better reducing algorithm
 #V:4947 E:16382 Connectedness:0.015
+
+i <- 0
 while(vcount(g)>5000){
   g <- g - V(g)[igraph::degree(g)<=4]
   i <- i+1
 }
+
+print(i)
 
 vcount(g)
 ecount(g)
