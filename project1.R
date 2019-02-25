@@ -82,3 +82,16 @@ sort(ego_size(g),TRUE) #max ego size 11 ,only one person
 #(e) betweenness centrality and power centrality.
 centBetweeness <- centr_betw(g)
 power_centrality(g)
+
+# Question 7
+vc<-ego_size(g, 3, V(g),mindist = 0)
+od<-order(vc,decreasing = TRUE)[1:20]
+topGraphs <- ego(g, 3, V(g)[c(od)],mindist = 0)
+
+for(i in 1:19){
+  for(j in i:20){
+    #intersection(topGraphs[i],  topGraphs[j], byname = "auto", keep.all.vertices = FALSE)
+    print(intersect(topGraphs[i], topGraphs[j]))
+    
+  }
+}
