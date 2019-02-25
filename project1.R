@@ -46,6 +46,7 @@ vertex_attr(g)
 is.simple(g)
 page_rank(g)#Calculates the Google PageRank for the specified vertices.
 print(shortpath)
+centr_betw(g)
 
 #15 other functions in igraph
 bipartite.mapping(g) #decide whether a graph is bipartite
