@@ -72,7 +72,7 @@ stresscent(graph.matrix)#Compute the Stress Centrality Scores of Network Positio
 graph.degree <- degree(g)
 sort(graph.degree,TRUE) #only vertice 534751
 #(b) longest path 
-get_diameter(g) #distance 25 #multiple longest path???
+get_diameter(g) #distance 25 
 #(c) largest clique 
 largest_cliques(g) #multiple
 #(d) ego
@@ -80,5 +80,18 @@ ego <- ego.extract(graph.matrix)
 sort(ego_size(g),TRUE) #max ego size 11 ,only one person
 
 #(e) betweenness centrality and power centrality.
-centr_betw(g)
-power_centrality(g)
+sort(betweenness(g),TRUE)
+sort(power_centrality(g,exponent=0.9),TRUE)
+
+# Question 7
+vc<-ego_size(g, 3, V(g),mindist = 0)
+od<-order(vc,decreasing = TRUE)[1:20]
+topGraphs <- ego(g, 3, V(g)[c(od)],mindist = 0)
+
+for(i in 1:19){
+  for(j in i:20){
+    #intersection(topGraphs[i],  topGraphs[j], byname = "auto", keep.all.vertices = FALSE)
+    print(intersect(topGraphs[i], topGraphs[j]))
+    
+  }
+}
