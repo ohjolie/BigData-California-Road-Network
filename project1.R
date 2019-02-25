@@ -68,14 +68,17 @@ loadcent(graph.matrix)#Compute the Load Centrality Scores of Network Positions
 g.reach<-reachability(graph.matrix)#producing the associated reachability matrices
 stresscent(graph.matrix)#Compute the Stress Centrality Scores of Network Positions
 
-#node <- V(g) #save all the node in g to "node"
-#nodefreq <- as.data.frame(table(v1))
-# charnode <-attr(node,"names")
-# intnode <- as.numeric(charnode)
-# for (i in intnode) {
-#   if(nodefreq[nodefreq$v1==i,2]==1L)
-#     {#delete_vertices(g,i)}
-# }
+#(a) central person 
+graph.degree <- degree(g)
+sort(graph.degree,TRUE) #only vertice 534751
+#(b) longest path 
+get_diameter(g) #distance 25 #multiple longest path???
+#(c) largest clique 
+largest_cliques(g) #multiple
+#(d) ego
+ego <- ego.extract(graph.matrix)
+sort(ego_size(g),TRUE) #max ego size 11 ,only one person
 
-#View(g)
-  
+#(e) betweenness centrality and power centrality.
+centr_betw(g)
+power_centrality(g)
